@@ -1,0 +1,110 @@
+<<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidéos de présentation</title>
+    <link rel="stylesheet" href="css/style_articles_annexe.css">
+</head>
+
+<body>
+    <div class="main-content">
+        <h1>Vidéos de présentation</h1>
+        <div class="espace_court"></div>
+        <section>
+            <div class="left-align">
+                
+                <!-- Première vidéo -->
+                <div class="video-container">
+                    <video src="VIDEO/presentation_clinique.mp4" poster="IMG/img affiche.jpg"></video>
+                    <div class="video-controls">
+                        <button class="play-pause control-btn">▶</button>
+                        <input type="range" class="progress-bar" min="0" max="100" value="0">
+                        <div class="volume-container">
+                            <button class="mute-btn control-btn">🔊</button>
+                            <input type="range" class="volume-bar" min="0" max="1" step="0.1" value="1">
+                        </div>
+                    </div>
+                </div>
+        <div class="espace_court"></div>
+                <!-- Seconde vidéo -->
+                <div class="video-container">
+                    <video src="VIDEO/Presentation_gams.mp4" poster="IMG/img affiche.jpg"></video>
+                    <div class="video-controls">
+                        <button class="play-pause control-btn">▶</button>
+                        <input type="range" class="progress-bar" min="0" max="100" value="0">
+                        <div class="volume-container">
+                            <button class="mute-btn control-btn">🔊</button>
+                            <input type="range" class="volume-bar" min="0" max="1" step="0.1" value="1">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="right-align">
+                <p>Venez découvrir des ateliers spécialement conçu pour les femmes ayant subi une excision/ Mutilation Génitale Féminine (MGF) et/ou tout autre type de violence sexuelle.</p>
+                <p>C’est avec plaisir que nous vous accueillons lors de 2 matinées au GAMS pour un moment de détente et d’amusement entre filles. Perception et conscientisation du corps et du périnée, sexualité, consentement … Ces sujets seront abordés de manière ludique et bienveillante.</p>
+            </div>
+            <div class="clear-fixe"></div>
+        </section>
+    </div>
+
+    <!-- SCRIPT UNIQUE POUR TOUTES LES VIDÉOS -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const containers = document.querySelectorAll('.video-container');
+
+        containers.forEach(container => {
+          const video = container.querySelector('video');
+          const playPauseBtn = container.querySelector('.play-pause');
+          const progressBar = container.querySelector('.progress-bar');
+          const muteBtn = container.querySelector('.mute-btn');
+          const volumeBar = container.querySelector('.volume-bar');
+
+          // Play / Pause
+          playPauseBtn.addEventListener('click', () => {
+            if (video.paused) {
+              video.play();
+              playPauseBtn.textContent = '⏸';
+            } else {
+              video.pause();
+              playPauseBtn.textContent = '▶';
+            }
+          });
+
+          video.addEventListener('click', () => playPauseBtn.click());
+
+          // Barre de progression
+          video.addEventListener('timeupdate', () => {
+            const percentage = (video.currentTime / video.duration) * 100;
+            progressBar.value = isNaN(percentage) ? 0 : percentage;
+          });
+
+          progressBar.addEventListener('input', () => {
+            video.currentTime = (progressBar.value / 100) * video.duration;
+          });
+
+          // Volume
+          volumeBar.addEventListener('input', () => {
+            video.volume = volumeBar.value;
+            muteBtn.textContent = video.volume === 0 ? '🔇' : (video.volume < 0.5 ? '🔉' : '🔊');
+          });
+
+          // Mute
+          muteBtn.addEventListener('click', () => {
+            video.muted = !video.muted;
+            muteBtn.textContent = video.muted ? '🔇' : (video.volume < 0.5 ? '🔉' : '🔊');
+            volumeBar.value = video.muted ? 0 : video.volume;
+          });
+
+          // Reset fin de vidéo
+          video.addEventListener('ended', () => {
+            playPauseBtn.textContent = '▶';
+            progressBar.value = 0;
+          });
+        });
+      });
+    </script>
+</body>
+</html>

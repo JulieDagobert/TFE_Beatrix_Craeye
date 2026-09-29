@@ -1,0 +1,248 @@
+/* reset de base */
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+/* ==========================================================================
+   TYPOGRAPHIE
+   ========================================================================== */
+@font-face {
+    font-family: 'Ruda-regular';
+    src: url('../Fontes/Ruda-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: 'Sprat-Regular';
+    src: url('../Fontes/Sprat-Regular.otf');
+}
+
+@font-face {
+    font-family: 'Ruda-Bold';
+    src: url('../Fontes/Ruda-Bold.ttf');
+}
+
+
+/* ==========================================================================
+   LAYOUT PRINCIPAL
+   ========================================================================== */
+body{
+    margin:0;
+    margin-top: 20px;
+    font-size:18px;
+    font-family: 'Ruda-regular';
+    color: rgb(0, 0, 0);
+    background: rgb(255, 214, 214);
+
+h1{
+    font-size: 80px;
+    font-family: Sprat-Light;
+    color: rgb(0, 0, 0);
+}
+
+h2{
+    font-size: 20px;
+    font-family: 'Ruda-Bold';
+    color: rgb(0, 0, 0);
+}
+
+.nom_exercice{
+    font-size: 40px;
+    font-family: 'Sprat-Regular';
+    color:brown
+}
+
+.main-content{
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+.left-align{
+    float:left;
+    width:60%;
+    padding-right: 30px;
+}
+
+.right-align{
+    float:left;
+    width:40%;
+    padding-left: 30px;
+}
+
+.main-content img{
+    width:100%;
+    border-radius: 5%;
+    margin-bottom: 60px;
+}
+
+.clear-fixe{
+    clear:both;
+}
+
+.espace{
+    height: 180px; 
+}
+
+
+.espace_court{
+    height: 30px;
+}
+
+.sources{
+    clear: both;
+    font-size: 8px;
+    font-family: 'ruda-regular';
+    color:rgb(0, 0, 0);
+    text-align: justify;
+    hyphens: auto;
+    margin-left:auto;
+    margin-right:auto;
+    width:80%;
+}
+
+.pourquoi{
+    font-size: 18px;
+    font-family: 'ruda-regular';
+    color:rgb(0, 0, 0);
+    text-align: justify;
+    hyphens: auto;
+}
+
+.intro_pourquoi{
+    font-size: 18px;
+    font-family:'Ruda-Bold';
+    color:rgb(0, 0, 0);
+    text-align: justify;
+    hyphens: auto;
+    margin-bottom: 18px;
+}
+
+
+/* ==========================================================================
+   Colonnes
+   ========================================================================== */
+
+
+
+.left-align2{
+    float:left;
+    width:50%;
+    padding-right: 30px;
+}
+
+.right-align2{
+    float:left;
+    width:50%;
+    padding-left: 30px;
+}
+
+
+
+
+/* ==========================================================================
+   Liens
+   ========================================================================== */
+
+a:link {
+  color: #694cad;
+  text-decoration: none;   
+  font-weight: bold;        
+}
+
+a:hover {
+  color: #200354; 
+  text-decoration: underline;
+}
+
+
+
+
+
+/* ==========================================================================
+   Video
+   ========================================================================== */
+
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-width: 800px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+#custom-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    background-color: #000;
+    cursor: pointer;
+}
+
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover; /* Ou 'contain' selon le rendu souhaité */
+}
+
+/* Barre de contrôles */
+.video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    gap: 15px;
+    opacity: 0;
+    pointer-events: none; /* Empêche de bloquer la vidéo quand invisible */
+    transition: opacity 0.3s ease;
+}
+
+/* Affichage au survol */
+.video-container:hover .video-controls {
+    opacity: 1;
+    pointer-events: auto; /* Active les boutons quand visible */
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+input[type="range"] {
+    cursor: pointer;
+    accent-color: #e28774; 
+}
+
+#progress-bar {
+    flex-grow: 1;
+}
+
+.volume-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#volume-bar {
+    width: 60px;
+}
+
+
+
