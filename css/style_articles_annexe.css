@@ -49,6 +49,16 @@ h2{
     color: rgb(0, 0, 0);
 }
 
+.présentation {
+    text-align: center;
+    width: 70%;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto; 
+    color: rgb(0, 0, 0);
+}
+
+	
 .nom_exercice{
     font-size: 40px;
     font-family: 'Sprat-Regular';
